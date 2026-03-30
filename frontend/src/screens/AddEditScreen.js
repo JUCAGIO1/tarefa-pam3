@@ -1,65 +1,57 @@
 import React, { useState } from "react";
-import {View, TextInput, Button } from "react-native";
+import { View, TextInput, Button, ActivityIndicator } from "react-native";
 
-import styles from "..styles/styles";
+import styles from "../styles/styles";
 
-import {createPerson, updatePerson } from "../servers/peopleCrud";
+import { createPerson, updatePerson } from "../servers/peopleCrud";
 
 export default function AddEditScreen({ route, navigation }) {
+  const person = route.params?.person;
 
-    const person = route.params?.person;
+  const [firstName, setFirstName] = useState(person?.firstName || "");
+  const [lastName, setLastName] = useState(person?.lastName || "");
+  const [email, setEmail] = useState(person?.email || "");
 
-    const[firstName,setFirstName] = useState(person?.firstName || "");
-    const[lastName,setLastName] = useState(person?.lastName || "");
-    const[email,setEmail] = useState(person?.email || "");
+  async function save() {
+    if (firstName.trim() || lastName.trim() || email.trim());
+    alert("Por favor, preencha todos os campos.");
+    alert("Por favor, preencha todos os campos.");
 
-    async function save(){
-        const data = { firstName,lastName,email };
+    const data = { firstName, lastName, email };
 
-        if(person){
-            await updatePerson(person.id,data);
+    try {
+      if (person) {
+        await updatePerson(person.id, data);
+      } else {
+        await createPerson(data);
+      }
 
-        }else{
-
-            await createPerson(data);
-
-        }
-
-        navigation.goBack();
-        }
-
-        return(
-
-            <View style={styles.container}>
-
-                <TextInput
-                    placeholder="First Name"
-                    value={firstName}
-                    onChangeText={setFirstName}
-                />
-
-                <TextInput
-                    placeholder="Last Name"
-                    value={lastName}
-                    onChangeText={setLastName}
-                />
-
-                <TextInput
-                    placeholder="Email"
-                    value={email}
-                    onChangeText={setEmail}
-                />
-
-                <Button
-                    title="Salvar"
-                    onPress={save}
-                />
-
-                <Button
-                    title="Cancelar"
-                    onPress={()=> navigation.goBack()}
-                />
-                
-            </View>
-        )
+      navigation.goBack();
+    } catch (error) {
+      console.error(error);
+      alert("Ocorreu um erro ao salvar a pessoa. Por favor, tente novamente.");
     }
+  }
+
+  return (
+    <View style={styles.container}>
+      <TextInput
+        placeholder="First Name"
+        value={firstName}
+        onChangeText={setFirstName}
+      />
+
+      <TextInput
+        placeholder="Last Name"
+        value={lastName}
+        onChangeText={setLastName}
+      />
+
+      <TextInput placeholder="Email" value={email} onChangeText={setEmail} />
+
+      <Button title="Salvar" onPress={save} />
+
+      <Button title="Cancelar" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}

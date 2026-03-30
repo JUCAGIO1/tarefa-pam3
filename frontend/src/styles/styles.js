@@ -16,10 +16,17 @@ export default StyleSheet.create({
     card:{
         flexDirection:"row",
         justifyContetn:"space-between",
+        alignItems: "center",
         backgroundColor:"#fff",
         padding:10,
         marginBottom:10,
         borderRadius:5
+    },
+
+    infoContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "flex-start",
     },
 
     name:{
@@ -33,6 +40,7 @@ export default StyleSheet.create({
     button:{
         padding:10,
         backgroundColor:"#4CAF50",
-        borderRadius:5
+        borderRadius:5,
+        gap: 100
     }
 });
