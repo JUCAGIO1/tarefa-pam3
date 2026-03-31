@@ -1,48 +1,64 @@
-echo "# 📱 Projeto People Management - CRUD Mobile
+# 📱 People Management System - React Native CRUD
 
-Este projeto é um aplicativo mobile desenvolvido para a disciplina de **PAM II** (Programação de Aplicativos Móveis II). O sistema permite o gerenciamento completo de registros de pessoas (Criar, Listar, Filtrar, Editar e Excluir) integrados a um servidor backend.
-
----
-
-## 📝 Descrição do Projeto
-O objetivo principal foi criar uma interface funcional para manipulação de dados em tempo real. O aplicativo resolve a necessidade de organizar contatos através de uma listagem dinâmica e um sistema de busca eficiente.
-
-**Destaques da solução:**
-- **Filtro em Tempo Real:** Busca instantânea por nome utilizando manipulação de strings.
-- **Navegação Intuitiva:** Fluxo direto entre a listagem principal e as telas de cadastro/edição.
-- **Integração com API:** Comunicação total com banco de dados via Axios.
+Este repositório contém uma aplicação mobile robusta desenvolvida em **React Native** com o ecossistema **Expo**. O projeto implementa um ciclo completo de **CRUD** (Create, Read, Update, Delete) integrado a uma API REST simulada via JSON Server.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-* **React Native / Expo**: Framework de desenvolvimento.
-* **JavaScript (ES6+)**: Linguagem de programação.
-* **Axios**: Biblioteca para requisições HTTP.
-* **JSON Server**: Simulação de backend REST.
-* **Localtunnel**: Ferramenta para conexão entre o PC e o celular.
+## 📝 Descrição Técnica
+A arquitetura do projeto foi estruturada para separar a lógica de consumo de dados da interface do usuário (UI), garantindo facilidade na manutenção e escalabilidade.
+
+**Destaques da Implementação:**
+- **Filtro de Busca Local:** Algoritmo de filtragem reativo implementado na `HomeScreen` para busca instantânea.
+- **Sincronização de Ciclo de Vida:** Uso de `useFocusEffect` para garantir que a lista de contatos seja revalidada sempre que o usuário retornar à tela principal.
+- **Persistência de Dados:** Camada de serviço isolada em `peopleCrud.js` utilizando Axios para operações assíncronas.
+- **Navegação em Pilha:** Implementação de `Stack Navigation` para transição entre visualização e formulário.
 
 ---
 
-## ⚙️ Instalação
-Siga os comandos abaixo no terminal para preparar o ambiente:
-1. **Instalar as dependências:** \`npm install\`
-2. **Ferramentas globais:** \`npm install -g json-server localtunnel\`
+## 🛠️ Stack Tecnológica
+* **Framework:** React Native & Expo
+* **Linguagem:** JavaScript ES6+
+* **Comunicação HTTP:** Axios
+* **Backend Simulado:** JSON Server
+* **Networking:** Localtunnel (Exposição de Porta)
 
 ---
 
-## 🚀 Execução
-Para rodar o projeto na escola:
-1. **Backend:** \`json-server --watch db.json --port 3000\`
-2. **Túnel:** \`lt --port 3000\`
-3. **Mobile:** \`npx expo start --tunnel\`
+## ⚙️ Guia de Instalação e Execução
 
----
+Para garantir o funcionamento correto do ecossistema (Mobile + API), siga rigorosamente a ordem dos procedimentos abaixo:
 
-## 💡 Explicação da Solução
-* **Componentização:** Uso de componentes personalizados para os cards.
-* **Lógica de Busca:** Filtro com \`.filter()\` e \`.toLowerCase()\` para performance local.
-* **Sincronização:** Uso de \`useFocusEffect\` para atualizar a lista ao voltar para a Home.
+### 1. Preparação do Ambiente
+Abra o terminal no diretório raiz do seu projeto e entre na pasta de Frontend para realizar a instalação das dependências listadas no `package.json`:
 
----
-**Desenvolvido por:** Jucagio1
-**Instituição:** ETEC | 2026" > README.md && git add README.md && git commit -m "Adicionando documentação README" && git push
+- ### Entre na pasta de frontend
+  ```bash
+  cd frontend
+  ```
+
+- ### Instale as dependências
+  ```bash
+  npm install
+  ```
+
+### 2. Instalação do Json-Server e Inicialização
+
+ - ### Abra um novo terminal
+ - ```
+   ctrl + shift + '
+   ```
+
+- ### Entre na pasta do backend
+- ```
+  cd backend
+  ```
+
+- ### Instale o Json-Server
+- ```
+  npm i -g json-server
+  ```
+
+- ### Inicializando o Json-Server
+- ```
+  json-server --watch db.json --port 3000
+  ```
