@@ -11,14 +11,15 @@ export default function AddEditScreen({ route, navigation }) {
   const [firstName, setFirstName] = useState(person?.firstName || "");
   const [lastName, setLastName] = useState(person?.lastName || "");
   const [email, setEmail] = useState(person?.email || "");
+  const [phone, setPhone] = useState(person?.phone || "");
 
   async function save() {
-    if (!firstName.trim() || !lastName.trim() || !email.trim()) {
+    if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
       alert("Por favor, preencha todos os campos.");
       return;
     } 
       
-    const data = { firstName, lastName, email };
+    const data = { firstName, lastName, email, phone };
       
     try {
       if (person) {
@@ -52,6 +53,12 @@ export default function AddEditScreen({ route, navigation }) {
         placeholder="Email" 
         value={email} 
         onChangeText={setEmail} 
+      />
+
+      <TextInput
+      placeholder="Phone"
+      value={phone}
+      onChangeText={setPhone}
       />
 
       <Button title="Salvar" onPress={save} />

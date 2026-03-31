@@ -18,6 +18,10 @@ export default function CardPersonal({item, navigation, refresh}){
                     {item.email}
                 </Text>
 
+                <Text style={styles.email} numberOfLines={1}>
+                    {item.phone}
+                </Text>
+
             </View>
 
         <View style={{marginLeft: 120}}>
