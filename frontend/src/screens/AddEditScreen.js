@@ -13,12 +13,13 @@ export default function AddEditScreen({ route, navigation }) {
   const [email, setEmail] = useState(person?.email || "");
 
   async function save() {
-    if (firstName.trim() || lastName.trim() || email.trim());
-    alert("Por favor, preencha todos os campos.");
-    alert("Por favor, preencha todos os campos.");
-
+    if (!firstName.trim() || !lastName.trim() || !email.trim()) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    } 
+      
     const data = { firstName, lastName, email };
-
+      
     try {
       if (person) {
         await updatePerson(person.id, data);
@@ -47,7 +48,11 @@ export default function AddEditScreen({ route, navigation }) {
         onChangeText={setLastName}
       />
 
-      <TextInput placeholder="Email" value={email} onChangeText={setEmail} />
+      <TextInput 
+        placeholder="Email" 
+        value={email} 
+        onChangeText={setEmail} 
+      />
 
       <Button title="Salvar" onPress={save} />
 
