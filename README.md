@@ -1,31 +1,48 @@
-# 📱 Projeto People Management - CRUD Mobile
+echo "# 📱 Projeto People Management - CRUD Mobile
 
-Este projeto é um aplicativo mobile desenvolvido para a disciplina de **PAM II** (Programação de Aplicativos Móveis II). O sistema permite o gerenciamento de registros de pessoas (Criar, Listar, Filtrar, Editar e Excluir) conectados a um servidor backend.
+Este projeto é um aplicativo mobile desenvolvido para a disciplina de **PAM II** (Programação de Aplicativos Móveis II). O sistema permite o gerenciamento completo de registros de pessoas (Criar, Listar, Filtrar, Editar e Excluir) integrados a um servidor backend.
 
 ---
 
 ## 📝 Descrição do Projeto
-O aplicativo foi construído com foco em usabilidade e persistência de dados. Ele resolve o problema de gerenciamento de contatos de forma dinâmica, utilizando uma API REST para armazenar as informações. 
+O objetivo principal foi criar uma interface funcional para manipulação de dados em tempo real. O aplicativo resolve a necessidade de organizar contatos através de uma listagem dinâmica e um sistema de busca eficiente.
 
 **Destaques da solução:**
-- **Filtro em Tempo Real:** Busca dinâmica na lista de pessoas.
-- **Feedback Visual:** Uso de indicadores de carregamento (Loading).
-- **Tratamento de Erros:** Alertas amigáveis para falhas de conexão.
+- **Filtro em Tempo Real:** Busca instantânea por nome utilizando manipulação de strings.
+- **Navegação Intuitiva:** Fluxo direto entre a listagem principal e as telas de cadastro/edição.
+- **Integração com API:** Comunicação total com banco de dados via Axios.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
-* **React Native / Expo**: Framework principal.
-* **JavaScript (ES6+)**: Lógica do app.
-* **Axios**: Consumo da API.
-* **JSON Server**: Backend fake para testes.
-* **Localtunnel**: Para expor a API local para o celular.
+* **React Native / Expo**: Framework de desenvolvimento.
+* **JavaScript (ES6+)**: Linguagem de programação.
+* **Axios**: Biblioteca para requisições HTTP.
+* **JSON Server**: Simulação de backend REST.
+* **Localtunnel**: Ferramenta para conexão entre o PC e o celular.
 
 ---
 
 ## ⚙️ Instalação
-Para configurar o ambiente, siga os passos abaixo no terminal do seu computador:
+Siga os comandos abaixo no terminal para preparar o ambiente:
+1. **Instalar as dependências:** \`npm install\`
+2. **Ferramentas globais:** \`npm install -g json-server localtunnel\`
 
-1. **Instalar as dependências do projeto:**
-   ```bash
-   npm install
+---
+
+## 🚀 Execução
+Para rodar o projeto na escola:
+1. **Backend:** \`json-server --watch db.json --port 3000\`
+2. **Túnel:** \`lt --port 3000\`
+3. **Mobile:** \`npx expo start --tunnel\`
+
+---
+
+## 💡 Explicação da Solução
+* **Componentização:** Uso de componentes personalizados para os cards.
+* **Lógica de Busca:** Filtro com \`.filter()\` e \`.toLowerCase()\` para performance local.
+* **Sincronização:** Uso de \`useFocusEffect\` para atualizar a lista ao voltar para a Home.
+
+---
+**Desenvolvido por:** Jucagio1
+**Instituição:** ETEC | 2026" > README.md && git add README.md && git commit -m "Adicionando documentação README" && git push
