@@ -4,6 +4,10 @@ Este repositório contém uma aplicação mobile robusta desenvolvida em **React
 
 ---
 
+# Vídeo de Demonstração
+https://github.com/user-attachments/assets/79955c4f-b040-4b7b-9e2c-202fb1b95ca6
+
+
 ## 📝 Descrição Técnica
 A arquitetura do projeto foi estruturada para separar a lógica de consumo de dados da interface do usuário (UI), garantindo facilidade na manutenção e escalabilidade.
 
