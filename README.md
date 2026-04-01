@@ -62,3 +62,53 @@ Abra o terminal no diretório raiz do seu projeto e entre na pasta de Frontend p
 - ```
   json-server --watch db.json --port 3000
   ```
+
+### 3. Instalação do LocalTunnel e como liga-lo
+
+- ### Abra um novo terminal
+- ```
+  ctrl + shift + '
+  ```
+
+- ### Instale o LocalTunnel
+- ```
+  npm install -g localtunnel
+  ```
+
+- ### Inicialize o Localtunnel
+- ```
+  lt --port 3000
+  ```
+
+- Atenção: Copie o endereço gerado pelo Localtunnel (ex: https://...loca.lt) e atualize a variável baseURL no seu arquivo de serviço (peopleCrud.js ou api.js) dentro da pasta frontend.
+
+### 4. Inicialização do APP Mobile
+
+- ### Volte ao terminal que voce instalou as dependências
+
+- ### Inicialize o APP com Localtunnel
+- ```
+  npx expo start --tunnel
+  ```
+  Escaneie o código QR gerado cdom seu celular
+
+## 💡 Explicação da Solução
+O projeto foi desenvolvido focando na estabilidade das operações básicas e na experiência do usuário em redes restritas:
+
+- ### Validação de Formulários:
+- Na AddEditScreen, foi implementada uma verificação de campos obrigatórios utilizando o método .trim() para evitar o cadastro de strings vazias, interrompendo o fluxo imediatamente com um alert e return.
+
+- ### Gerenciamento de Lista:
+- O filtro de busca utiliza os métodos .filter() e .toLowerCase() diretamente no estado people, proporcionando uma busca instantânea no lado do cliente (client-side), sem causar latência ou sobrecarregar a rede com novas requisições.
+
+- ### Consumo de API:
+- A comunicação com o servidor foi centralizada em funções assíncronas (async/await) protegidas por blocos try/catch para capturar erros de rede e evitar que a aplicação encerre inesperadamente.
+
+- ### Navegação:
+- A chamada de navigation.goBack() automatiza o retorno do usuário para a lista principal após salvar os dados. Em conjunto, o uso do hook useFocusEffect na tela principal garante que a lista de pessoas puxe os dados frescos da API automaticamente assim que a tela ganha foco novamente.
+
+  ## Desenvolvido por: Jucagio1
+
+  ## Instituição: ETEC
+
+  ## Ano: 2026
