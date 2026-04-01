@@ -14,7 +14,8 @@ export default function HomeScreen({ navigation }) {
   const [search, setSearch] = useState(""); // usestate vazio para o campo de busca
   const lowerSearch = search.toLowerCase(); // converte o texto de busca para minúsculo
   const filteredPeople = people.filter((person) =>
-    person.firstName.toLowerCase().includes(lowerSearch),
+    person.firstName.toLowerCase().includes(lowerSearch) ||
+    person.lastName.toLowerCase().includes(lowerSearch),
   ); //filtra a lista de pessoas com base no campo de busca
 
   const [loading, setLoading] = useState(true);

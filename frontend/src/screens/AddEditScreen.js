@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, ActivityIndicator } from "react-native";
+import { View, TextInput, Button, Alert } from "react-native";
 
 import styles from "../styles/styles";
 
@@ -15,7 +15,7 @@ export default function AddEditScreen({ route, navigation }) {
 
   async function save() {
     if (!firstName.trim() || !lastName.trim() || !email.trim() || !phone.trim()) {
-      alert("Por favor, preencha todos os campos.");
+      Alert.alert("Erro", "Por favor, preencha todos os campos.");
       return;
     } 
       
@@ -31,7 +31,7 @@ export default function AddEditScreen({ route, navigation }) {
       navigation.goBack();
     } catch (error) {
       console.error(error);
-      alert("Ocorreu um erro ao salvar a pessoa. Por favor, tente novamente.");
+      Alert.alert("Erro", "Ocorreu um erro ao salvar a pessoa. Por favor, tente novamente.");
     }
   }
 
